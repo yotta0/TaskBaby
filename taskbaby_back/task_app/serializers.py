@@ -5,7 +5,7 @@ from rest_framework import serializers
 from .models import TaskList
 
 
-class TaskListSerializer(serializers.ModelSerializer):
+class TaskListSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     description = serializers.CharField()
     due_date = serializers.DateTimeField()
