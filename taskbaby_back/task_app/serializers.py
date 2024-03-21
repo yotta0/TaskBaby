@@ -6,6 +6,7 @@ from .models import TaskList
 
 
 class TaskListSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(max_length=200)
 
     def validate(self, data):
@@ -18,4 +19,4 @@ class TaskListSerializer(serializers.Serializer):
             title=validated_data['title']
         )
         task_list.save()
-        return validated_data
+        return task_list
